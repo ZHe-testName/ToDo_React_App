@@ -1,20 +1,11 @@
 import React from 'react';
 import React_Dom from 'react-dom';
 
+import AppHeader from './components/app-header';
+import SearchPanel from './components/search-panel';
+import ToDoList from './components/todo-list';
+
 const root = document.getElementById('root');
-
-const ToDoList = () => {
-    return (
-        <ul>
-            <li>Learn React</li>
-            <li>Make Awesome App</li>
-        </ul>
-    );
-};
-
-const AppHeader = () => <h1>My ToDo List</h1>;
-
-const SearchPanel = () => <input placeholder='search'/>;
 
 const App = () => {
     return (
