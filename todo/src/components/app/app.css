@@ -1,0 +1,13 @@
+.todo-app{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-panel{
+    justify-content: space-between;
+    line-height: 35px;
+    align-items: flex-end;
+    padding: 3px;
+}
