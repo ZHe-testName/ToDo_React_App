@@ -4,10 +4,14 @@ import AppHeader from '../app-header/';
 import SearchPanel from '../search-panel/';
 import ToDoList from '../todo-list/';
 import ItemStatusFilter from '../item-status-filter/';
+import ItemAddForm from '../item-add-form/';
 
 import './app.css';
 
 export default class App extends Component{
+
+    minId = 100;
+
     state = {
         todoData: [
             {label: 'Drink Coffe', important: false, id: 1},
@@ -20,7 +24,7 @@ export default class App extends Component{
         //ВАЖНО!!!!
 
         //НИ В КОЕМ СЛУЧАЕ НЕЛЬЗЯ ИЗМЕНЯТЬ ПРЕДИДУЩИЙ STATE!!!
-        //Использовать только сполсобы и методы которые не изменяют предидущего состояния
+        //Использовать только способы и методы которые не изменяют предидущего состояния
         
         //...и если наш результат опирается на предидущтй стейт 
         //то нужно в setState передавать функцию а не объект
@@ -38,6 +42,25 @@ export default class App extends Component{
         }); 
     }
 
+    createItem = (text) => {
+        const newItem = {
+            label: text,
+            important: false,
+            id: this.minId++
+        };
+
+        this.setState(({todoData}) => {
+            const newItemsArr = [
+                ...todoData,
+                newItem
+            ];
+
+            return {
+                todoData: newItemsArr
+            };
+        });
+    }
+
     render(){
         return (
             <div className='todo-app'>
@@ -50,6 +73,9 @@ export default class App extends Component{
                 <ToDoList 
                     todos={this.state.todoData}
                     deleteToDoItem={this.deleteItem} />
+
+                <ItemAddForm
+                    createToDoItem={this.createItem} />
             </div>
         );
     }
