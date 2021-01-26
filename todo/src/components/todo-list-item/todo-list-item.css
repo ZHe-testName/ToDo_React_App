@@ -1,6 +1,8 @@
 .todo-list-item-label,
 .todo-list-item{
     font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .todo-list-item button{
@@ -16,11 +18,11 @@
     margin-right: 20%;
 }
 
-.todo-list-item .done .todo-list-item-label{
+.todo-list-item.done .todo-list-item-label{
     text-decoration: line-through;
 }
 
-.todo-list-item .important .todo-list-item-label{
+.todo-list-item.important .todo-list-item-label{
     font-weight: bold;
     color: steelblue;
 }
