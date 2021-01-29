@@ -47,12 +47,17 @@ export default class ToDoListItem extends Component{
     // > this.state инициализируется в конструкторе или в теле класса
     // > После инициализации state изменять нельзя (только читать)
     // > Чтобы обновить state используют setState
-    state = {
-        done: false,
-        important: false
-    }
+    
+    //в начале работы с приложением использовался
+    //уже не используеться
+    // state = {
+    //     done: false,
+    //     important: false
+    // }
 
-    clickOnLabel = () => {
+    //в начале работы с приложением использовался
+    //уже не используеться
+    // clickOnLabel = () => {
         //Как работает setState() — в setState() нужно 
         //передавать только изменения state (функция обновляет только конкретную часть состояния)
         //setState() это асинхронная функция и возможны случаи
@@ -68,24 +73,27 @@ export default class ToDoListItem extends Component{
 
         //Объект state можно сразу же диструктурировать
         //и извлекать нужные переменные
-        this.setState(({done}) => {
-            return {
-                done: !done
-            }
-        });
-    }
+    //     this.setState(({done}) => {
+    //         return {
+    //             done: !done
+    //         }
+    //     });
+    // }
 
-    clickOnImportant = () => {
-        this.setState(({important}) => {
-            return {
-                important: !important
-            }
-        });
-    };
+
+    //в начале работы с приложением использовался
+    //уже не используеться
+    // clickOnImportant = () => {
+    //     this.setState(({important}) => {
+    //         return {
+    //             important: !important
+    //         }
+    //     });
+    // };
 
     render(){
-        const {label, onDeleted} = this.props;
-        const {done, important} = this.state;
+        const {label, onDeleted, onToggleImportant, onToggleDone, important, done} = this.props;
+        // const {done, important} = this.state;
 
         let spanClassNameStr = 'todo-list-item';
 
@@ -116,12 +124,12 @@ export default class ToDoListItem extends Component{
                         //или использовать современные возможности языка
                         //которые еще не вошли в стандарт
                         //это свойство Class Fields(Поля Класса)
-                        onClick={this.clickOnLabel}>{label}</span>
+                        onClick={onToggleDone}>{label}</span>
     
                     <div>
                         <button
                             className='btn btn-outline-success btm-sm'
-                            onClick={this.clickOnImportant}>
+                            onClick={onToggleImportant}>
                                 <i className='fa fa-exclamation'></i>
                         </button>
     

@@ -3,7 +3,9 @@ import ToDoListItem from '../todo-list-item/';
 
 import './todo-list.css';
 
-const ToDoList = ({todos, deleteToDoItem}) => {
+const ToDoList = ({todos, deleteToDoItem,
+                onToggleImportant,
+                onToggleDone}) => {
     const elments = todos.map(item => {
         //чтобы не передавать в елемент лишнее значение(id)
         //используем спред опрератор стобы отделить его от знгачений
@@ -24,7 +26,9 @@ const ToDoList = ({todos, deleteToDoItem}) => {
             <li key={id} className='list-group-item'>
                 <ToDoListItem 
                     {...todosItem}
-                    onDeleted={() => deleteToDoItem(id)} />
+                    onDeleted={() => deleteToDoItem(id)}
+                    onToggleImportant={() => onToggleImportant(id)}
+                    onToggleDone={() => onToggleDone(id)} />
             </li>
         );
     });
